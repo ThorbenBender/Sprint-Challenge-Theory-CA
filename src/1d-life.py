@@ -8,7 +8,7 @@ def get_new_value(old_gen, old_automata):
     # return the updated automata
     for i in range(SQ_NUM):
         live = 0
-        index = ((SQ_NUM - 1) * old_gen) + i
+        index = ((SQ_NUM) * old_gen) + i
         print(index)
 
         if i - 1 >= 0 and old_automata[index - 1]:
@@ -24,6 +24,9 @@ def get_new_value(old_gen, old_automata):
             old_automata[index + SQ_NUM] = 1
         elif not old_automata[index] and live == 0 and index + SQ_NUM < (SQ_NUM * SQ_NUM):
             old_automata[index + SQ_NUM] = 0
+
+        print('automata index', old_automata[index])
+
     print('==============================================================')
     return old_automata
 
